@@ -1,0 +1,514 @@
+{
+    "@context": {
+        "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+        "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+        "sh": "http://www.w3.org/ns/shacl#",
+        "xsd": "http://www.w3.org/2001/XMLSchema#",
+        "schema": "http://schema.org/",
+        "bio": "http://bioschemas.org/specifications/"
+    },
+    "sh:shapeGraph": [
+        {
+            "@id": "DataCatalogShape",
+            "@type": "sh:NodeShape",
+            "sh:targetClass": "bio:DataCatalog",
+            "sh:property": [
+                {
+                    "sh:path": "schema:dataset",
+                    "sh:severity": "sh:Warning",
+                    "sh:class": "Dataset"
+                },
+                {
+                    "sh:path": "schema:citation",
+                    "sh:severity": "sh:Warning",
+                    "sh:or": [
+                        {
+                            "sh:class": "schema:CreativeWork"
+                        },
+                        {
+                            "sh:class": "schema:Text"
+                        },
+                        {
+                            "sh:datatype": "xsd:string"
+                        }
+                    ]
+                },
+                {
+                    "sh:path": "schema:dateModified",
+                    "sh:severity": "sh:Warning",
+                    "sh:maxCount": 1,
+                    "sh:or": [
+                        {
+                            "sh:class": "schema:Date"
+                        },
+                        {
+                            "sh:class": "schema:DateTime"
+                        }
+                    ]
+                },
+                {
+                    "sh:path": "schema:datePublished",
+                    "sh:maxCount": 1,
+                    "sh:class": "Date"
+                },
+                {
+                    "sh:path": "schema:fileFormat",
+                    "sh:or": [
+                        {
+                            "sh:class": "schema:Text"
+                        },
+                        {
+                            "sh:datatype": "xsd:string"
+                        },
+                        {
+                            "sh:class": "schema:URL"
+                        },
+                        {
+                            "sh:datatype": "xsd:anyURL"
+                        }
+                    ]
+                },
+                {
+                    "sh:path": "schema:keywords",
+                    "sh:severity": "sh:Violation",
+                    "sh:minCount": 1,
+                    "sh:class": "Text"
+                },
+                {
+                    "sh:path": "schema:license",
+                    "sh:severity": "sh:Warning",
+                    "sh:maxCount": 1,
+                    "sh:or": [
+                        {
+                            "sh:class": "schema:CreativeWork"
+                        },
+                        {
+                            "sh:class": "schema:URL"
+                        },
+                        {
+                            "sh:datatype": "xsd:anyURL"
+                        }
+                    ]
+                },
+                {
+                    "sh:path": "schema:provider",
+                    "sh:severity": "sh:Violation",
+                    "sh:minCount": 1,
+                    "sh:maxCount": 1,
+                    "sh:or": [
+                        {
+                            "sh:class": "schema:Organization"
+                        },
+                        {
+                            "sh:class": "schema:Person"
+                        }
+                    ]
+                },
+                {
+                    "sh:path": "schema:publication",
+                    "sh:severity": "sh:Warning",
+                    "sh:class": "PublicationEvent"
+                },
+                {
+                    "sh:path": "schema:sourceOrganization",
+                    "sh:severity": "sh:Warning",
+                    "sh:class": "Organization"
+                },
+                {
+                    "sh:path": "schema:alternateName",
+                    "sh:severity": "sh:Warning",
+                    "sh:class": "Text"
+                },
+                {
+                    "sh:path": "schema:description",
+                    "sh:severity": "sh:Violation",
+                    "sh:minCount": 1,
+                    "sh:maxCount": 1,
+                    "sh:class": "Text"
+                },
+                {
+                    "sh:path": "schema:identifier",
+                    "sh:severity": "sh:Warning",
+                    "sh:or": [
+                        {
+                            "sh:class": "schema:PropertyValue"
+                        },
+                        {
+                            "sh:class": "schema:Text"
+                        },
+                        {
+                            "sh:datatype": "xsd:string"
+                        },
+                        {
+                            "sh:class": "schema:URL"
+                        },
+                        {
+                            "sh:datatype": "xsd:anyURL"
+                        }
+                    ]
+                },
+                {
+                    "sh:path": "schema:name",
+                    "sh:severity": "sh:Violation",
+                    "sh:minCount": 1,
+                    "sh:maxCount": 1,
+                    "sh:class": "Text"
+                },
+                {
+                    "sh:path": "schema:url",
+                    "sh:severity": "sh:Violation",
+                    "sh:minCount": 1,
+                    "sh:maxCount": 1,
+                    "sh:class": "URL"
+                }
+            ]
+        },
+        {
+            "@id": "DatasetShape",
+            "@type": "sh:NodeShape",
+            "sh:targetClass": "bio:Dataset",
+            "sh:property": [
+                {
+                    "sh:path": "schema:name",
+                    "sh:severity": "sh:Violation",
+                    "sh:minCount": 1,
+                    "sh:maxCount": 1,
+                    "sh:class": "Text"
+                },
+                {
+                    "sh:path": "schema:description",
+                    "sh:severity": "sh:Violation",
+                    "sh:minCount": 1,
+                    "sh:maxCount": 1,
+                    "sh:class": "Text"
+                },
+                {
+                    "sh:path": "schema:url",
+                    "sh:severity": "sh:Violation",
+                    "sh:minCount": 1,
+                    "sh:maxCount": 1,
+                    "sh:class": "URL"
+                },
+                {
+                    "sh:path": "schema:identifier",
+                    "sh:severity": "sh:Violation",
+                    "sh:minCount": 1,
+                    "sh:or": [
+                        {
+                            "sh:class": "schema:PropertyValue"
+                        },
+                        {
+                            "sh:class": "schema:Text"
+                        },
+                        {
+                            "sh:datatype": "xsd:string"
+                        },
+                        {
+                            "sh:class": "schema:URL"
+                        },
+                        {
+                            "sh:datatype": "xsd:anyURL"
+                        }
+                    ]
+                },
+                {
+                    "sh:path": "schema:keywords",
+                    "sh:severity": "sh:Violation",
+                    "sh:minCount": 1,
+                    "sh:class": "Text"
+                }
+            ]
+        },
+        {
+            "@id": "EventShape",
+            "@type": "sh:NodeShape",
+            "sh:targetClass": "bio:Event",
+            "sh:property": [
+                {
+                    "sh:path": "schema:audience",
+                    "sh:severity": "sh:Warning",
+                    "sh:class": "Audience"
+                },
+                {
+                    "sh:path": "schema:endDate",
+                    "sh:severity": "sh:Violation",
+                    "sh:minCount": 1,
+                    "sh:maxCount": 1,
+                    "sh:or": [
+                        {
+                            "sh:class": "schema:Date"
+                        },
+                        {
+                            "sh:class": "schema:DateTime"
+                        }
+                    ]
+                },
+                {
+                    "sh:path": "schema:location",
+                    "sh:severity": "sh:Violation",
+                    "sh:minCount": 1,
+                    "sh:maxCount": 1,
+                    "sh:or": [
+                        {
+                            "sh:class": "schema:Place"
+                        },
+                        {
+                            "sh:class": "schema:PostalAddress"
+                        },
+                        {
+                            "sh:class": "schema:Text"
+                        },
+                        {
+                            "sh:datatype": "xsd:string"
+                        }
+                    ]
+                },
+                {
+                    "sh:path": "schema:maximumAttendeeCapacity",
+                    "sh:severity": "sh:Warning",
+                    "sh:maxCount": 1,
+                    "sh:class": "Integer"
+                },
+                {
+                    "sh:path": "schema:offers",
+                    "sh:maxCount": 1,
+                    "sh:class": "Offer"
+                },
+                {
+                    "sh:path": "schema:organizer",
+                    "sh:severity": "sh:Violation",
+                    "sh:minCount": 1,
+                    "sh:or": [
+                        {
+                            "sh:class": "schema:Organization"
+                        },
+                        {
+                            "sh:class": "schema:Person"
+                        }
+                    ]
+                },
+                {
+                    "sh:path": "schema:performer",
+                    "sh:or": [
+                        {
+                            "sh:class": "schema:Organization"
+                        },
+                        {
+                            "sh:class": "schema:Person"
+                        }
+                    ]
+                },
+                {
+                    "sh:path": "schema:review",
+                    "sh:class": "Review"
+                },
+                {
+                    "sh:path": "schema:sponsor",
+                    "sh:or": [
+                        {
+                            "sh:class": "schema:Organization"
+                        },
+                        {
+                            "sh:class": "schema:Person"
+                        }
+                    ]
+                },
+                {
+                    "sh:path": "schema:startDate",
+                    "sh:severity": "sh:Violation",
+                    "sh:minCount": 1,
+                    "sh:maxCount": 1,
+                    "sh:or": [
+                        {
+                            "sh:class": "schema:Date"
+                        },
+                        {
+                            "sh:class": "schema:DateTime"
+                        }
+                    ]
+                },
+                {
+                    "sh:path": "schema:subEvent",
+                    "sh:class": "Event"
+                },
+                {
+                    "sh:path": "schema:superEvent",
+                    "sh:maxCount": 1,
+                    "sh:class": "Event"
+                },
+                {
+                    "sh:path": "schema:alternateName",
+                    "sh:severity": "sh:Warning",
+                    "sh:maxCount": 1,
+                    "sh:class": "Text"
+                },
+                {
+                    "sh:path": "schema:description",
+                    "sh:severity": "sh:Violation",
+                    "sh:minCount": 1,
+                    "sh:class": "Text"
+                },
+                {
+                    "sh:path": "schema:identifier",
+                    "sh:maxCount": 1,
+                    "sh:or": [
+                        {
+                            "sh:class": "schema:PropertyValue"
+                        },
+                        {
+                            "sh:class": "schema:Text"
+                        },
+                        {
+                            "sh:datatype": "xsd:string"
+                        },
+                        {
+                            "sh:class": "schema:URL"
+                        },
+                        {
+                            "sh:datatype": "xsd:anyURL"
+                        }
+                    ]
+                },
+                {
+                    "sh:path": "schema:name",
+                    "sh:severity": "sh:Violation",
+                    "sh:minCount": 1,
+                    "sh:class": "Text"
+                },
+                {
+                    "sh:path": "schema:url",
+                    "sh:severity": "sh:Warning",
+                    "sh:class": "URL"
+                },
+                {
+                    "sh:path": "schema:keywords",
+                    "sh:severity": "sh:Warning",
+                    "sh:class": "Text"
+                },
+                {
+                    "sh:path": "schema:dateModified",
+                    "sh:maxCount": 1,
+                    "sh:class": "Date"
+                },
+                {
+                    "sh:path": "schema:hostInstitution",
+                    "sh:severity": "sh:Violation",
+                    "sh:minCount": 1,
+                    "sh:class": "Organization"
+                },
+                {
+                    "sh:path": "schema:eventType",
+                    "sh:severity": "sh:Violation",
+                    "sh:minCount": 1,
+                    "sh:class": "EventType"
+                },
+                {
+                    "sh:path": "schema:topic",
+                    "sh:severity": "sh:Warning",
+                    "sh:class": "Topic"
+                },
+                {
+                    "sh:path": "schema:programme",
+                    "sh:severity": "sh:Warning",
+                    "sh:maxCount": 1,
+                    "sh:or": [
+                        {
+                            "sh:class": "schema:Text"
+                        },
+                        {
+                            "sh:datatype": "xsd:string"
+                        },
+                        {
+                            "sh:class": "schema:URL"
+                        },
+                        {
+                            "sh:datatype": "xsd:anyURL"
+                        }
+                    ]
+                },
+                {
+                    "sh:path": "schema:deadline",
+                    "sh:severity": "sh:Warning",
+                    "sh:or": [
+                        {
+                            "sh:class": "schema:Text"
+                        },
+                        {
+                            "sh:datatype": "xsd:string"
+                        },
+                        {
+                            "sh:class": "schema:URL"
+                        },
+                        {
+                            "sh:datatype": "xsd:anyURL"
+                        }
+                    ]
+                },
+                {
+                    "sh:path": "schema:prerequisite",
+                    "sh:severity": "sh:Warning",
+                    "sh:class": "Text"
+                },
+                {
+                    "sh:path": "schema:eligibility",
+                    "sh:severity": "sh:Warning",
+                    "sh:or": [
+                        {
+                            "sh:class": "schema:Text"
+                        },
+                        {
+                            "sh:datatype": "xsd:string"
+                        },
+                        {
+                            "sh:class": "schema:Eligibility"
+                        }
+                    ]
+                },
+                {
+                    "sh:path": "schema:accreditation",
+                    "sh:severity": "sh:Warning",
+                    "sh:maxCount": 1,
+                    "sh:or": [
+                        {
+                            "sh:class": "schema:Organization"
+                        },
+                        {
+                            "sh:class": "schema:Text"
+                        },
+                        {
+                            "sh:datatype": "xsd:string"
+                        }
+                    ]
+                },
+                {
+                    "sh:path": "schema:registrationStatus",
+                    "sh:maxCount": 1,
+                    "sh:class": "RegistrationStatus"
+                },
+                {
+                    "sh:path": "schema:socialMedia",
+                    "sh:class": "URL"
+                },
+                {
+                    "sh:path": "schema:attachement",
+                    "sh:class": "URL"
+                },
+                {
+                    "sh:path": "schema:submitter",
+                    "sh:or": [
+                        {
+                            "sh:class": "schema:Organization"
+                        },
+                        {
+                            "sh:class": "schema:Person"
+                        }
+                    ]
+                },
+                {
+                    "sh:path": "schema:acceptanceNotificationDate",
+                    "sh:class": "Date"
+                }
+            ]
+        }
+    ]
+}

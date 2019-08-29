@@ -1,0 +1,242 @@
+@prefix bio: <http://bioschemas.org/specifications/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+bio:DataCatalogShape a sh:NodeShape ;
+    sh:property [ sh:class "Organization" ;
+            sh:path "schema:sourceOrganization" ;
+            sh:severity "sh:Warning" ],
+        [ sh:maxCount 1 ;
+            sh:or [ sh:class "schema:CreativeWork" ],
+                [ sh:datatype "xsd:anyURL" ],
+                [ sh:class "schema:URL" ] ;
+            sh:path "schema:license" ;
+            sh:severity "sh:Warning" ],
+        [ sh:or [ sh:datatype "xsd:anyURL" ],
+                [ sh:class "schema:Text" ],
+                [ sh:class "schema:URL" ],
+                [ sh:class "schema:PropertyValue" ],
+                [ sh:datatype "xsd:string" ] ;
+            sh:path "schema:identifier" ;
+            sh:severity "sh:Warning" ],
+        [ sh:maxCount 1 ;
+            sh:or [ sh:class "schema:Date" ],
+                [ sh:class "schema:DateTime" ] ;
+            sh:path "schema:dateModified" ;
+            sh:severity "sh:Warning" ],
+        [ sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:or [ sh:class "schema:Person" ],
+                [ sh:class "schema:Organization" ] ;
+            sh:path "schema:provider" ;
+            sh:severity "sh:Violation" ],
+        [ sh:class "Text" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path "schema:name" ;
+            sh:severity "sh:Violation" ],
+        [ sh:class "PublicationEvent" ;
+            sh:path "schema:publication" ;
+            sh:severity "sh:Warning" ],
+        [ sh:class "Dataset" ;
+            sh:path "schema:dataset" ;
+            sh:severity "sh:Warning" ],
+        [ sh:or [ sh:datatype "xsd:anyURL" ],
+                [ sh:class "schema:Text" ],
+                [ sh:class "schema:URL" ],
+                [ sh:datatype "xsd:string" ] ;
+            sh:path "schema:fileFormat" ],
+        [ sh:class "Date" ;
+            sh:maxCount 1 ;
+            sh:path "schema:datePublished" ],
+        [ sh:class "Text" ;
+            sh:minCount 1 ;
+            sh:path "schema:keywords" ;
+            sh:severity "sh:Violation" ],
+        [ sh:or [ sh:class "schema:CreativeWork" ],
+                [ sh:datatype "xsd:string" ],
+                [ sh:class "schema:Text" ] ;
+            sh:path "schema:citation" ;
+            sh:severity "sh:Warning" ],
+        [ sh:class "Text" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path "schema:description" ;
+            sh:severity "sh:Violation" ],
+        [ sh:class "Text" ;
+            sh:path "schema:alternateName" ;
+            sh:severity "sh:Warning" ],
+        [ sh:class "URL" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path "schema:url" ;
+            sh:severity "sh:Violation" ] ;
+    sh:targetClass "bio:DataCatalog" .
+
+bio:DatasetShape a sh:NodeShape ;
+    sh:property [ sh:minCount 1 ;
+            sh:or [ sh:datatype "xsd:string" ],
+                [ sh:class "schema:PropertyValue" ],
+                [ sh:class "schema:Text" ],
+                [ sh:class "schema:URL" ],
+                [ sh:datatype "xsd:anyURL" ] ;
+            sh:path "schema:identifier" ;
+            sh:severity "sh:Violation" ],
+        [ sh:class "URL" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path "schema:url" ;
+            sh:severity "sh:Violation" ],
+        [ sh:class "Text" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path "schema:name" ;
+            sh:severity "sh:Violation" ],
+        [ sh:class "Text" ;
+            sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:path "schema:description" ;
+            sh:severity "sh:Violation" ],
+        [ sh:class "Text" ;
+            sh:minCount 1 ;
+            sh:path "schema:keywords" ;
+            sh:severity "sh:Violation" ] ;
+    sh:targetClass "bio:Dataset" .
+
+bio:EventShape a sh:NodeShape ;
+    sh:property [ sh:or [ sh:class "schema:Organization" ],
+                [ sh:class "schema:Person" ] ;
+            sh:path "schema:performer" ],
+        [ sh:or [ sh:datatype "xsd:anyURL" ],
+                [ sh:datatype "xsd:string" ],
+                [ sh:class "schema:URL" ],
+                [ sh:class "schema:Text" ] ;
+            sh:path "schema:deadline" ;
+            sh:severity "sh:Warning" ],
+        [ sh:class "URL" ;
+            sh:path "schema:attachement" ],
+        [ sh:class "Text" ;
+            sh:maxCount 1 ;
+            sh:path "schema:alternateName" ;
+            sh:severity "sh:Warning" ],
+        [ sh:class "Audience" ;
+            sh:path "schema:audience" ;
+            sh:severity "sh:Warning" ],
+        [ sh:class "Text" ;
+            sh:minCount 1 ;
+            sh:path "schema:description" ;
+            sh:severity "sh:Violation" ],
+        [ sh:class "Event" ;
+            sh:maxCount 1 ;
+            sh:path "schema:superEvent" ],
+        [ sh:maxCount 1 ;
+            sh:or [ sh:class "schema:Organization" ],
+                [ sh:datatype "xsd:string" ],
+                [ sh:class "schema:Text" ] ;
+            sh:path "schema:accreditation" ;
+            sh:severity "sh:Warning" ],
+        [ sh:or [ sh:class "schema:Person" ],
+                [ sh:class "schema:Organization" ] ;
+            sh:path "schema:submitter" ],
+        [ sh:class "URL" ;
+            sh:path "schema:url" ;
+            sh:severity "sh:Warning" ],
+        [ sh:class "Event" ;
+            sh:path "schema:subEvent" ],
+        [ sh:maxCount 1 ;
+            sh:or [ sh:class "schema:URL" ],
+                [ sh:class "schema:Text" ],
+                [ sh:datatype "xsd:anyURL" ],
+                [ sh:class "schema:PropertyValue" ],
+                [ sh:datatype "xsd:string" ] ;
+            sh:path "schema:identifier" ],
+        [ sh:class "Integer" ;
+            sh:maxCount 1 ;
+            sh:path "schema:maximumAttendeeCapacity" ;
+            sh:severity "sh:Warning" ],
+        [ sh:class "Organization" ;
+            sh:minCount 1 ;
+            sh:path "schema:hostInstitution" ;
+            sh:severity "sh:Violation" ],
+        [ sh:class "Review" ;
+            sh:path "schema:review" ],
+        [ sh:class "Date" ;
+            sh:path "schema:acceptanceNotificationDate" ],
+        [ sh:class "Text" ;
+            sh:path "schema:prerequisite" ;
+            sh:severity "sh:Warning" ],
+        [ sh:class "Offer" ;
+            sh:maxCount 1 ;
+            sh:path "schema:offers" ],
+        [ sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:or [ sh:class "schema:Text" ],
+                [ sh:class "schema:PostalAddress" ],
+                [ sh:class "schema:Place" ],
+                [ sh:datatype "xsd:string" ] ;
+            sh:path "schema:location" ;
+            sh:severity "sh:Violation" ],
+        [ sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:or [ sh:class "schema:Date" ],
+                [ sh:class "schema:DateTime" ] ;
+            sh:path "schema:startDate" ;
+            sh:severity "sh:Violation" ],
+        [ sh:class "RegistrationStatus" ;
+            sh:maxCount 1 ;
+            sh:path "schema:registrationStatus" ],
+        [ sh:maxCount 1 ;
+            sh:minCount 1 ;
+            sh:or [ sh:class "schema:Date" ],
+                [ sh:class "schema:DateTime" ] ;
+            sh:path "schema:endDate" ;
+            sh:severity "sh:Violation" ],
+        [ sh:class "URL" ;
+            sh:path "schema:socialMedia" ],
+        [ sh:class "Date" ;
+            sh:maxCount 1 ;
+            sh:path "schema:dateModified" ],
+        [ sh:class "Text" ;
+            sh:path "schema:keywords" ;
+            sh:severity "sh:Warning" ],
+        [ sh:minCount 1 ;
+            sh:or [ sh:class "schema:Person" ],
+                [ sh:class "schema:Organization" ] ;
+            sh:path "schema:organizer" ;
+            sh:severity "sh:Violation" ],
+        [ sh:class "EventType" ;
+            sh:minCount 1 ;
+            sh:path "schema:eventType" ;
+            sh:severity "sh:Violation" ],
+        [ sh:or [ sh:class "schema:Organization" ],
+                [ sh:class "schema:Person" ] ;
+            sh:path "schema:sponsor" ],
+        [ sh:maxCount 1 ;
+            sh:or [ sh:class "schema:Text" ],
+                [ sh:datatype "xsd:string" ],
+                [ sh:datatype "xsd:anyURL" ],
+                [ sh:class "schema:URL" ] ;
+            sh:path "schema:programme" ;
+            sh:severity "sh:Warning" ],
+        [ sh:or [ sh:class "schema:Text" ],
+                [ sh:class "schema:Eligibility" ],
+                [ sh:datatype "xsd:string" ] ;
+            sh:path "schema:eligibility" ;
+            sh:severity "sh:Warning" ],
+        [ sh:class "Text" ;
+            sh:minCount 1 ;
+            sh:path "schema:name" ;
+            sh:severity "sh:Violation" ],
+        [ sh:class "Topic" ;
+            sh:path "schema:topic" ;
+            sh:severity "sh:Warning" ] ;
+    sh:targetClass "bio:Event" .
+
+[] sh:shapeGraph bio:DataCatalogShape,
+        bio:DatasetShape,
+        bio:EventShape .
+
