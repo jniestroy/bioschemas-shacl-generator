@@ -1,0 +1,7 @@
+{
+"@context":{
+  "base":"http://schema.org/",
+  "bio":"http://bioschemas.org/specifications/"
+},
+"@type":"bio:DataCatalog"
+}

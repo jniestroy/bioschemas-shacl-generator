@@ -1,6 +1,7 @@
 import yaml
 import requests
 import json
+import rdflib
 
 def read_in_spec(type):
 
@@ -92,7 +93,7 @@ for i in range(len(specs)):
                 elif allowed == 'URL':
                     prop_dict['sh:or'].append({"sh:datatype": "xsd:anyURL"})
         else:
-            prop_dict['sh:class'] = expected_types[0]
+            prop_dict['sh:class'] = "schema:" + expected_types[0]
 
         specGraph['sh:property'].append(prop_dict)
 
@@ -100,3 +101,14 @@ for i in range(len(specs)):
 
 with open('bioschemas_shacl.json','w') as out:
     json.dump(shacl_rules,out,indent=4, separators=(',', ': '))
+
+g = rdflib.Graph()
+g.parse("bioschemas_shacl.json", format="json-ld",publicID = "http://bioschemas.org/specifications/")
+
+g.serialize(destination='shacl.ttl', format='turtle')
+
+import fileinput
+
+with fileinput.FileInput('shacl.ttl', inplace=True) as file:
+    for line in file:
+        print(line.replace('"', ''), end='')

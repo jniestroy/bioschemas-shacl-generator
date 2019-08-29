@@ -16,7 +16,7 @@
                 {
                     "sh:path": "schema:dataset",
                     "sh:severity": "sh:Warning",
-                    "sh:class": "Dataset"
+                    "sh:class": "schema:Dataset"
                 },
                 {
                     "sh:path": "schema:citation",
@@ -49,7 +49,7 @@
                 {
                     "sh:path": "schema:datePublished",
                     "sh:maxCount": 1,
-                    "sh:class": "Date"
+                    "sh:class": "schema:Date"
                 },
                 {
                     "sh:path": "schema:fileFormat",
@@ -72,7 +72,7 @@
                     "sh:path": "schema:keywords",
                     "sh:severity": "sh:Violation",
                     "sh:minCount": 1,
-                    "sh:class": "Text"
+                    "sh:class": "schema:Text"
                 },
                 {
                     "sh:path": "schema:license",
@@ -107,24 +107,24 @@
                 {
                     "sh:path": "schema:publication",
                     "sh:severity": "sh:Warning",
-                    "sh:class": "PublicationEvent"
+                    "sh:class": "schema:PublicationEvent"
                 },
                 {
                     "sh:path": "schema:sourceOrganization",
                     "sh:severity": "sh:Warning",
-                    "sh:class": "Organization"
+                    "sh:class": "schema:Organization"
                 },
                 {
                     "sh:path": "schema:alternateName",
                     "sh:severity": "sh:Warning",
-                    "sh:class": "Text"
+                    "sh:class": "schema:Text"
                 },
                 {
                     "sh:path": "schema:description",
                     "sh:severity": "sh:Violation",
                     "sh:minCount": 1,
                     "sh:maxCount": 1,
-                    "sh:class": "Text"
+                    "sh:class": "schema:Text"
                 },
                 {
                     "sh:path": "schema:identifier",
@@ -152,14 +152,14 @@
                     "sh:severity": "sh:Violation",
                     "sh:minCount": 1,
                     "sh:maxCount": 1,
-                    "sh:class": "Text"
+                    "sh:class": "schema:Text"
                 },
                 {
                     "sh:path": "schema:url",
                     "sh:severity": "sh:Violation",
                     "sh:minCount": 1,
                     "sh:maxCount": 1,
-                    "sh:class": "URL"
+                    "sh:class": "schema:URL"
                 }
             ]
         },
@@ -173,21 +173,21 @@
                     "sh:severity": "sh:Violation",
                     "sh:minCount": 1,
                     "sh:maxCount": 1,
-                    "sh:class": "Text"
+                    "sh:class": "schema:Text"
                 },
                 {
                     "sh:path": "schema:description",
                     "sh:severity": "sh:Violation",
                     "sh:minCount": 1,
                     "sh:maxCount": 1,
-                    "sh:class": "Text"
+                    "sh:class": "schema:Text"
                 },
                 {
                     "sh:path": "schema:url",
                     "sh:severity": "sh:Violation",
                     "sh:minCount": 1,
                     "sh:maxCount": 1,
-                    "sh:class": "URL"
+                    "sh:class": "schema:URL"
                 },
                 {
                     "sh:path": "schema:identifier",
@@ -215,7 +215,7 @@
                     "sh:path": "schema:keywords",
                     "sh:severity": "sh:Violation",
                     "sh:minCount": 1,
-                    "sh:class": "Text"
+                    "sh:class": "schema:Text"
                 }
             ]
         },
@@ -227,7 +227,7 @@
                 {
                     "sh:path": "schema:audience",
                     "sh:severity": "sh:Warning",
-                    "sh:class": "Audience"
+                    "sh:class": "schema:Audience"
                 },
                 {
                     "sh:path": "schema:endDate",
@@ -267,12 +267,12 @@
                     "sh:path": "schema:maximumAttendeeCapacity",
                     "sh:severity": "sh:Warning",
                     "sh:maxCount": 1,
-                    "sh:class": "Integer"
+                    "sh:class": "schema:Integer"
                 },
                 {
                     "sh:path": "schema:offers",
                     "sh:maxCount": 1,
-                    "sh:class": "Offer"
+                    "sh:class": "schema:Offer"
                 },
                 {
                     "sh:path": "schema:organizer",
@@ -300,7 +300,7 @@
                 },
                 {
                     "sh:path": "schema:review",
-                    "sh:class": "Review"
+                    "sh:class": "schema:Review"
                 },
                 {
                     "sh:path": "schema:sponsor",
@@ -329,24 +329,24 @@
                 },
                 {
                     "sh:path": "schema:subEvent",
-                    "sh:class": "Event"
+                    "sh:class": "schema:Event"
                 },
                 {
                     "sh:path": "schema:superEvent",
                     "sh:maxCount": 1,
-                    "sh:class": "Event"
+                    "sh:class": "schema:Event"
                 },
                 {
                     "sh:path": "schema:alternateName",
                     "sh:severity": "sh:Warning",
                     "sh:maxCount": 1,
-                    "sh:class": "Text"
+                    "sh:class": "schema:Text"
                 },
                 {
                     "sh:path": "schema:description",
                     "sh:severity": "sh:Violation",
                     "sh:minCount": 1,
-                    "sh:class": "Text"
+                    "sh:class": "schema:Text"
                 },
                 {
                     "sh:path": "schema:identifier",
@@ -373,39 +373,39 @@
                     "sh:path": "schema:name",
                     "sh:severity": "sh:Violation",
                     "sh:minCount": 1,
-                    "sh:class": "Text"
+                    "sh:class": "schema:Text"
                 },
                 {
                     "sh:path": "schema:url",
                     "sh:severity": "sh:Warning",
-                    "sh:class": "URL"
+                    "sh:class": "schema:URL"
                 },
                 {
                     "sh:path": "schema:keywords",
                     "sh:severity": "sh:Warning",
-                    "sh:class": "Text"
+                    "sh:class": "schema:Text"
                 },
                 {
                     "sh:path": "schema:dateModified",
                     "sh:maxCount": 1,
-                    "sh:class": "Date"
+                    "sh:class": "schema:Date"
                 },
                 {
                     "sh:path": "schema:hostInstitution",
                     "sh:severity": "sh:Violation",
                     "sh:minCount": 1,
-                    "sh:class": "Organization"
+                    "sh:class": "schema:Organization"
                 },
                 {
                     "sh:path": "schema:eventType",
                     "sh:severity": "sh:Violation",
                     "sh:minCount": 1,
-                    "sh:class": "EventType"
+                    "sh:class": "schema:EventType"
                 },
                 {
                     "sh:path": "schema:topic",
                     "sh:severity": "sh:Warning",
-                    "sh:class": "Topic"
+                    "sh:class": "schema:Topic"
                 },
                 {
                     "sh:path": "schema:programme",
@@ -447,7 +447,7 @@
                 {
                     "sh:path": "schema:prerequisite",
                     "sh:severity": "sh:Warning",
-                    "sh:class": "Text"
+                    "sh:class": "schema:Text"
                 },
                 {
                     "sh:path": "schema:eligibility",
@@ -483,15 +483,15 @@
                 {
                     "sh:path": "schema:registrationStatus",
                     "sh:maxCount": 1,
-                    "sh:class": "RegistrationStatus"
+                    "sh:class": "schema:RegistrationStatus"
                 },
                 {
                     "sh:path": "schema:socialMedia",
-                    "sh:class": "URL"
+                    "sh:class": "schema:URL"
                 },
                 {
                     "sh:path": "schema:attachement",
-                    "sh:class": "URL"
+                    "sh:class": "schema:URL"
                 },
                 {
                     "sh:path": "schema:submitter",
@@ -506,7 +506,7 @@
                 },
                 {
                     "sh:path": "schema:acceptanceNotificationDate",
-                    "sh:class": "Date"
+                    "sh:class": "schema:Date"
                 }
             ]
         }

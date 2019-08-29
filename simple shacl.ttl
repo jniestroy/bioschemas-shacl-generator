@@ -1,0 +1,80 @@
+@prefix bio: <http://bioschemas.org/specifications/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <http://schema.org/> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+
+
+  bio:DataCatalogShape a sh:NodeShape ;
+      sh:property [ sh:class schema:Organization ;
+              sh:path schema:sourceOrganization ;
+              sh:severity sh:Warning ],
+          [ sh:maxCount 1 ;
+              sh:or [ sh:class schema:CreativeWork ],
+                  [ sh:datatype xsd:anyURL ],
+                  [ sh:class schema:URL ] ;
+              sh:path schema:license ;
+              sh:severity sh:Warning ],
+          [ sh:or [ sh:datatype xsd:anyURL ],
+                  [ sh:class schema:Text ],
+                  [ sh:class schema:URL ],
+                  [ sh:class schema:PropertyValue ],
+                  [ sh:datatype xsd:string ] ;
+              sh:path schema:identifier ;
+              sh:severity sh:Warning ],
+          [ sh:maxCount 1 ;
+              sh:or [ sh:class schema:Date ],
+                  [ sh:class schema:DateTime ] ;
+              sh:path schema:dateModified ;
+              sh:severity sh:Warning ],
+          [ sh:maxCount 1 ;
+              sh:minCount 1 ;
+              sh:or [ sh:class schema:Person ],
+                  [ sh:class schema:Organization ] ;
+              sh:path schema:provider ;
+              sh:severity sh:Violation ],
+          [ sh:class Text ;
+              sh:maxCount 1 ;
+              sh:minCount 1 ;
+              sh:path schema:name ;
+              sh:severity sh:Violation ],
+          [ sh:class PublicationEvent ;
+              sh:path schema:publication ;
+              sh:severity sh:Warning ],
+          [ sh:class Dataset ;
+              sh:path schema:dataset ;
+              sh:severity sh:Warning ],
+          [ sh:or [ sh:datatype xsd:anyURL ],
+                  [ sh:class schema:Text ],
+                  [ sh:class schema:URL ],
+                  [ sh:datatype xsd:string ] ;
+              sh:path schema:fileFormat ],
+          [ sh:class Date ;
+              sh:maxCount 1 ;
+              sh:path schema:datePublished ],
+          [ sh:class Text ;
+              sh:minCount 1 ;
+              sh:path schema:keywords ;
+              sh:severity sh:Violation ],
+          [ sh:or [ sh:class schema:CreativeWork ],
+                  [ sh:datatype xsd:string ],
+                  [ sh:class schema:Text ] ;
+              sh:path schema:citation ;
+              sh:severity sh:Warning ],
+          [ sh:class Text ;
+              sh:maxCount 1 ;
+              sh:minCount 1 ;
+              sh:path schema:description ;
+              sh:severity sh:Violation ],
+          [ sh:class Text ;
+              sh:path schema:alternateName ;
+              sh:severity sh:Warning ],
+          [ sh:class URL ;
+              sh:maxCount 1 ;
+              sh:minCount 1 ;
+              sh:path schema:url ;
+              sh:severity sh:Violation ] ;
+      sh:targetClass bio:DataCatalog .

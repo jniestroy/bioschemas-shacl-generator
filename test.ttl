@@ -1,0 +1,5 @@
+@prefix bio: <http://bioschemas.org/specifications/> .
+@prefix schema: <http://schema.org/> .
+
+:test rdf:type bio:DataCatalog .
+:test schema:name "ttest"
